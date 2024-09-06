@@ -8,13 +8,10 @@ dotenv.config();
 
 const port = 3000;
 
-const username = process.env.MONGODB_USERNAME;
-const password = process.env.MONGODB_PASSWORD;
-
 mongoose.connect(process.env.MONGODB_URI, {
     serverSelectionTimeoutMS: 5000, 
 });
-
+console.log(process.env.MONGODB_URI)
 const registrationSchema = new mongoose.Schema({
     name : String,
     email : String,
