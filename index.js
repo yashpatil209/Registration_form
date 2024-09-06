@@ -8,10 +8,14 @@ dotenv.config();
 
 const port = 3000;
 
-mongoose.connect(process.env.MONGODB_URI, {
-    serverSelectionTimeoutMS: 5000, 
-});
-console.log(process.env.MONGODB_URI)
+mongoose
+    .connect(process.env.MONGODB_URI, { 
+        useNewUrlParser: true,
+        useCreateIndex: true
+      })
+    .then(() => console.log('MongoDB connected...'))
+    .catch(err => console.log(err));
+
 const registrationSchema = new mongoose.Schema({
     name : String,
     email : String,
